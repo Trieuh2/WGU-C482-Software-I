@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Add Product">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <GridPane layoutX="68.0" layoutY="110.0" vgap="10.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="51.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="149.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="ID" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Name" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Inv" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Price" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label text="Max" GridPane.rowIndex="4">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField disable="true" editable="false" promptText="Auto Gen - Disabled" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font></TextField>
+            <TextField fx:id="nameInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="invInput" maxWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="priceInput" maxWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="maxInput" maxWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <TextField fx:id="partsSearchInput" layoutX="659.0" layoutY="69.0" onKeyPressed="#searchPart" prefHeight="25.0" prefWidth="159.0" promptText="Search by Part ID or Name" />
+      <TableView fx:id="allPartsTableView" layoutX="414.0" layoutY="105.0" prefHeight="200.0" prefWidth="404.0">
+        <columns>
+          <TableColumn fx:id="idAllPartsCol" editable="false" prefWidth="75.0" text="Part ID">
+              <cellValueFactory>
+                  <PropertyValueFactory property="Id" />
+              </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="nameAllPartsCol" editable="false" prefWidth="83.0" text="Part Name">
+              <cellValueFactory>
+                  <PropertyValueFactory property="Name" />
+              </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="invAllPartsCol" editable="false" prefWidth="110.0" text="Inventory Level">
+              <cellValueFactory>
+                  <PropertyValueFactory property="Stock" />
+              </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="costAllPartsCol" editable="false" prefWidth="135.0" text="Price/ Cost per Unit">
+              <cellValueFactory>
+                  <PropertyValueFactory property="Price" />
+              </cellValueFactory>
+          </TableColumn>
+
+        </columns>
+      </TableView>
+      <Button fx:id="addBtn" layoutX="737.0" layoutY="319.0" mnemonicParsing="false" onAction="#onActionAddBtn" text="Add" />
+      <TableView fx:id="partsListTableView" layoutX="414.0" layoutY="357.0" prefHeight="200.0" prefWidth="404.0">
+        <columns>
+          <TableColumn fx:id="idPartsListCol" prefWidth="75.0" text="Part ID">
+              <cellValueFactory>
+                  <PropertyValueFactory property="Id" />
+              </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="namePartsListCol" prefWidth="75.0" text="Part Name">
+              <cellValueFactory>
+                  <PropertyValueFactory property="Name" />
+              </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="invPartsListCol" prefWidth="118.0" text="Inventory Level">
+            <cellValueFactory>
+                <PropertyValueFactory property="Stock" />
+            </cellValueFactory>
+          </TableColumn>
+
+            <TableColumn fx:id="pricePartsListCol" prefWidth="135.0" text="Price/ Cost per Unit">
+                <cellValueFactory>
+                    <PropertyValueFactory property="Price" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+          
+      </TableView>
+      <Label layoutX="254.0" layoutY="276.0" text="Min">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="minInput" layoutX="301.0" layoutY="274.0" maxWidth="80.0" />
+      <Button fx:id="removeBtn" layoutX="659.0" layoutY="561.0" mnemonicParsing="false" onAction="#onActionRemoveBtn" text="Remove Associated Part" />
+      <Button fx:id="saveBtn" layoutX="659.0" layoutY="598.0" mnemonicParsing="false" onAction="#onActionSaveBtn" text="Save" />
+      <Button fx:id="cancelBtn" layoutX="730.0" layoutY="598.0" mnemonicParsing="false" onAction="#onActionCancelBtn" text="Cancel" />
+      <Label fx:id="exceptionsLabel" layoutX="68.0" layoutY="357.0" />
+   </children>
+</AnchorPane>

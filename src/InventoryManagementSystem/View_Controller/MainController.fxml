@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="44.0" prefWidth="200.0">
+         <children>
+            <Label layoutY="1.0" text="Inventory Management System">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="58.0" prefHeight="340.0" prefWidth="400.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Parts">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="partsSearchInput" layoutX="226.0" layoutY="34.0" onKeyPressed="#searchPart" prefHeight="25.0" prefWidth="160.0" promptText="Search by Part ID or Name" />
+            <TableView fx:id="partsTableView" layoutX="11.0" layoutY="70.0" prefHeight="200.0" prefWidth="375.0">
+               <columns>
+                  <TableColumn fx:id="partIdCol" editable="false" prefWidth="67.0" resizable="false" text="Part ID">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                     </cellValueFactory>
+                  </TableColumn>
+
+                  <TableColumn fx:id="partNameCol" editable="false" prefWidth="83.0" resizable="false" text="Part Name">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                     </cellValueFactory>
+                  </TableColumn>
+
+                  <TableColumn fx:id="partInventoryLevelCol" editable="false" prefWidth="99.0" resizable="false" text="Inventory Level">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="stock" />
+                     </cellValueFactory>
+                  </TableColumn>
+
+                  <TableColumn fx:id="priceCol" editable="false" prefWidth="124.0" resizable="false" text="Price/ Cost per Unit">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                     </cellValueFactory>
+                  </TableColumn>
+
+               </columns>
+            </TableView>
+            <Button fx:id="addPartButton" layoutX="190.0" layoutY="280.0" mnemonicParsing="false" onAction="#onActionAddPart" prefWidth="60.0" text="Add" />
+            <Button fx:id="modifyPartButton" layoutX="260.0" layoutY="280.0" mnemonicParsing="false" onAction="#onActionModifyPart" prefWidth="60.0" text="Modify" />
+            <Button fx:id="deletePartButton" layoutX="334.0" layoutY="280.0" mnemonicParsing="false" onAction="#onActionDeletePart" text="Delete" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="511.0" layoutY="58.0" prefHeight="340.0" prefWidth="436.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="511.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="58.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Products">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="productSearchInput" layoutX="243.0" layoutY="34.0" onKeyPressed="#searchProduct" prefHeight="27.0" prefWidth="180.0" promptText="Search by Product ID or Name" />
+            <TableView fx:id="productsTableView" layoutX="11.0" layoutY="70.0" prefHeight="200.0" prefWidth="410.0">
+               <columns>
+                  <TableColumn fx:id="productIdCol" editable="false" prefWidth="75.0" resizable="false" text="Product ID">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                     </cellValueFactory>
+                  </TableColumn>
+
+                  <TableColumn fx:id="productNameCol" editable="false" prefWidth="101.0" resizable="false" text="Product Name">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                     </cellValueFactory>
+                  </TableColumn>
+
+                  <TableColumn fx:id="productInvLevelCol" editable="false" prefWidth="100.0" resizable="false" text="Inventory Level">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="stock" />
+                     </cellValueFactory>
+                  </TableColumn>
+
+                  <TableColumn fx:id="productPrice_costPerUnitCol" editable="false" prefWidth="133.0" resizable="false" text="Price/ Cost per Unit">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                     </cellValueFactory>
+                  </TableColumn>
+
+               </columns>
+            </TableView>
+            <Button fx:id="addProductButton" layoutX="235.0" layoutY="280.0" mnemonicParsing="false" onAction="#onActionAddProduct" prefWidth="60.0" text="Add" />
+            <Button fx:id="modifyProductButton" layoutX="303.0" layoutY="280.0" mnemonicParsing="false" onAction="#onActionModifyProduct" prefWidth="60.0" text="Modify" />
+            <Button fx:id="deleteProductButton" layoutX="370.0" layoutY="280.0" mnemonicParsing="false" onAction="#onActionDeleteProduct" text="Delete" />
+            <Label fx:id="exceptionLabel" layoutX="14.0" layoutY="318.0" text="Exception: Deletion denied, this product has parts" visible="false" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="exitBtn" layoutX="872.0" layoutY="398.0" mnemonicParsing="false" onAction="#onActionExit" prefWidth="60.0" text="Exit" />
+   </children>
+</AnchorPane>
